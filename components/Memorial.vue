@@ -4,9 +4,11 @@ const store = useLangStore();
 const { lang } = storeToRefs(store)
 
 const props = defineProps(['memorials'])
+
 </script>
 
 <template>
+  <client-only>
   <div v-for="memorial in props.memorials" :key="memorial.slug"
     class="bg-white rounded-lg shadow-md overflow-hidden hover:opacity-75">
     <NuxtLink :to="memorial._path">
@@ -21,4 +23,5 @@ const props = defineProps(['memorials'])
       </NuxtLink>
     </div>
   </div>
+</client-only>
 </template>

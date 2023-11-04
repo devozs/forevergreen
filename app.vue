@@ -11,6 +11,7 @@
 </template>
 
 <script setup lang="ts">
+defineOgImageScreenshot()
 
 const store = useLangStore();
 
@@ -24,5 +25,10 @@ onMounted(() => {
 watch(lang, (newVal: string) => {
   locale.value = newVal
 })
+
+// useHead({
+//   title: 'ForeverGreen',
+//   titleTemplate: '%s'
+// })
 
 </script>

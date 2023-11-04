@@ -22,6 +22,9 @@ function containsHebrew(str) {
     return hebrewCharRegex.test(str);
 }
 
+const title = ref(lang.value === 'he' ? data.title_he :  data.title_en)
+const desc = ref(lang === 'he' ? data.description_he : data.description_en)
+
 </script>
 
 <template>
@@ -35,9 +38,9 @@ function containsHebrew(str) {
 
       <!-- Right Div -->
       <div class="flex flex-col justify-center m-3">
-        <h1 class="text-4xl font-bold">{{ lang === 'he' ? data.title_he :  data.title_en}}</h1>
+        <h1 class="text-4xl font-bold">{{ title }}</h1>
         <h1 class="text-xl font-bold">{{ data.date }}</h1>
-        <h1 class="text-xl font-bold">{{ lang === 'he' ? data.description_he : data.description_en }}</h1>
+        <h1 class="text-xl font-bold">{{ desc }}</h1>
       </div>
     </div>
 

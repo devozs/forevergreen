@@ -1,32 +1,40 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  site: {
+    url: 'https://forevergreen.devozs.com',
+    name: 'Forever Green',
+    description: 'Green Memorial',
+    defaultLocale: 'he',
+    trailingSlash: true,
+    identity: {
+      type: 'Person'
+    },
+    twitter: '@DevOzs',
+
+  },
   app: {
     head: {
+      titleTemplate: '%s %separator %siteName',
       templateParams: {
         separator: '•'
         // other common separators: '·', '—', '•'
       }
     }
   },
-  site: {
-    url: 'https://forevergreen.devozs.com',
-    name: 'Forever Green',
-    description: 'Green Memorial',
-    defaultLocale: 'en',
-  },
   modules: [
     '@nuxtjs/tailwindcss',
     'nuxt-icon',
     '@nuxt/content',
-    '@nuxtjs/apollo',
     'nuxt-og-image',
     '@nuxtseo/module',
+    'nuxt-simple-robots',
+    'nuxt-simple-sitemap',
     '@nuxtjs/i18n',
     '@pinia/nuxt',
     '@pinia-plugin-persistedstate/nuxt'
   ],
   // routeRules: {
-  //   "/": { redirect: "/en" },
+  //   "/en": { redirect: "/" },
   // },
   i18n: {
     locales: [
