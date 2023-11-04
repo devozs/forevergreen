@@ -17,6 +17,9 @@ const store = useLangStore();
 const { lang } = storeToRefs(store)
 const { locale } = useI18n()
 
+onMounted(() => {
+  locale.value = lang.value
+});
 
 watch(lang, (newVal: string) => {
   locale.value = newVal
