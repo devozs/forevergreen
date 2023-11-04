@@ -33,9 +33,9 @@ const { data: memorias } = await useAsyncData('latest-memorials', () =>
   <section>
     <h2 class="text-3xl font-bold mt-8">{{ $t('home.latest') }}</h2>
     <div class="grid md:grid-cols-3 pt-8 gap-10">
-      <client-only>
+      <!-- <client-only> -->
         <Memorial :memorials="memorias" />
-      </client-only>
+      <!-- </client-only> -->
     </div>
   </section>
 

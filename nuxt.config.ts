@@ -4,7 +4,7 @@ export default defineNuxtConfig({
     url: 'https://forevergreen.devozs.com',
     name: 'Forever Green',
     description: 'Green Memorial',
-    defaultLocale: 'he',
+    defaultLocale: 'he-IL',
     trailingSlash: true,
     identity: {
       type: 'Person'
@@ -14,7 +14,7 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      titleTemplate: '%s %separator %siteName',
+      titleTemplate: '%s %separator Forever Green', // WA due to bug in SEO-KIT (to be removed once upgraded)
       templateParams: {
         separator: '•'
         // other common separators: '·', '—', '•'
