@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-defineOgImageScreenshot()
+// defineOgImageScreenshot()
 
 const store = useLangStore();
 

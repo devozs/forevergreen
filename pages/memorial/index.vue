@@ -3,6 +3,12 @@ const { data: memorials } = await useAsyncData('memorials', () =>
   queryContent('/memorial').find()
 )
 
+defineOgImage({ url : `https://forevergreen.devozs.com/images/home-cover.jpeg`, alt: `Forever Green` }) 
+useHead({
+  title: ()=> 'Memorials',
+  titleTemplate: '%s %separator Forever Green'
+})
+
 </script>
 
 <template>
