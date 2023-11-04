@@ -1,9 +1,9 @@
 ---
 title_en: Omri Ram
 description_en: Fallen during the Reeim party
-title_he: עומרי רם
+title_he: עמרי רם
 description_he: נרצח במסיבה ברעים
-date: 23.05.2023
+date: 07.10.2023
 cover: omri-ram.jpeg
 tags:
   - Reeim
