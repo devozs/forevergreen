@@ -7,6 +7,10 @@ const { data: memorias } = await useAsyncData('latest-memorials', () =>
     .find()
 )
 
+useSeoMeta({
+  ogImage: () => `https://forevergreen.devozs.com/images/memorial/home-cover.jpeg?timestamp=${new Date().getMilliseconds()}`,
+})
+
 </script>
 
 <template>
