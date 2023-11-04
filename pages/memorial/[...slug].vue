@@ -25,6 +25,10 @@ function containsHebrew(str) {
 const title = ref(lang.value === 'he' ? data.title_he :  data.title_en)
 const desc = ref(lang === 'he' ? data.description_he : data.description_en)
 
+useSeoMeta({
+  ogImage: () => `https://forevergreen.devozs.com/images/memorial/${data.cover}?timestamp=${new Date().getMilliseconds()}`,
+})
+
 </script>
 
 <template>
