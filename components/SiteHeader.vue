@@ -68,7 +68,10 @@ const navigation = [
       <div class="space-y-1 px-2 pb-3 pt-2">
         <DisclosureButton v-for="item in navigation" :key="item.name" as="a" :href="item.href"
           :class="[item.current ? 'bg-green-900 text-white' : 'text-green-300 hover:bg-green-700 hover:text-white', 'block rounded-md px-3 py-2 text-base font-medium']"
-          :aria-current="item.current ? 'page' : undefined">{{ $t('menu.' + item.name.toLowerCase()) }}</DisclosureButton>
+          :aria-current="item.current ? 'page' : undefined">
+          <HomeIcon v-if="item.name === 'Home'" class="block h-6 w-6" />
+                <HeartIcon v-else class="block h-6 w-6" />
+        </DisclosureButton>
       </div>
     </DisclosurePanel>
   </Disclosure>

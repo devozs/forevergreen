@@ -2,7 +2,7 @@
 
 const { data: memorias } = await useAsyncData('latest-memorials', () =>
   queryContent('/memorial')
-    .sort({ data: 1 })
+    .sort({ date: 1 })
     .limit(3)
     .find()
 )
@@ -24,9 +24,9 @@ const { data: memorias } = await useAsyncData('latest-memorials', () =>
       <p class="text-lg py-2">
         {{ $t('home.thier_stories_2') }}
       </p>
-      <p class="text-lg py-2">
+      <!-- <p class="text-lg py-2">
         {{ $t('home.thier_stories_3') }}
-      </p>
+      </p> -->
     </div>
     <img src="/images/home-cover.jpeg" class="w-1/2 md:max-w-sm p-8 mx-auto rounded-full" />
   </section>
