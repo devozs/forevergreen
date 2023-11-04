@@ -12,6 +12,11 @@
 
 <script setup lang="ts">
 // defineOgImageScreenshot()
+defineOgImage({ url : `https://forevergreen.devozs.com/images/home-cover.jpeg`, alt: `Forever Green` }) 
+useHead({
+  title: ()=> '',
+  titleTemplate: 'Forever Green'
+})
 
 const store = useLangStore();
 

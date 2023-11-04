@@ -7,11 +7,6 @@ const { data: memorias } = await useAsyncData('latest-memorials', () =>
     .find()
 )
 
-defineOgImage({ url : `https://forevergreen.devozs.com/images/home-cover.jpeg`, alt: `Forever Green` }) 
-useHead({
-  title: ()=> '',
-  titleTemplate: 'Forever Green'
-})
 
 </script>
 
