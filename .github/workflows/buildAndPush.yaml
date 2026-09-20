@@ -5,6 +5,10 @@ on:
   push:
     branches:
       - 'main'
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   # test:
   #   runs-on: ubuntu-latest
@@ -73,3 +77,26 @@ jobs:
         run: |
           docker tag ${{ env.IMAGE }}:${{ steps.prep.outputs.BUILD_ID }} ${{ env.REGISTRY }}/${{ env.IMAGE }}:${{ steps.prep.outputs.BUILD_ID }}
           docker push ${{ env.REGISTRY }}/${{ env.IMAGE }}:${{ steps.prep.outputs.BUILD_ID }}
+
+      - name: Prune old GHCR images (keep last 2)
+        if: ${{ success() }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OWNER: devozs
+          PACKAGE: ${{ env.IMAGE }}
+        run: |
+          echo "Fetching versions for ghcr.io/${OWNER}/${PACKAGE}"
+          versions=$(gh api -H "Accept: application/vnd.github+json" \
+            /users/${OWNER}/packages/container/${PACKAGE}/versions \
+            --paginate -q '.[].id')
+          keep=2
+          count=0
+          for id in $versions; do
+            count=$((count+1))
+            if [ $count -le $keep ]; then
+              continue
+            fi
+            echo "Deleting older version id ${id}"
+            gh api --method DELETE -H "Accept: application/vnd.github+json" \
+              /users/${OWNER}/packages/container/${PACKAGE}/versions/${id} || true
+          done
